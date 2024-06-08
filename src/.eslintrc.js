@@ -3,23 +3,21 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    "eslint:recommended",
-    "plugin:eslint-plugin/recommended", // Activar el plugin eslint-plugin
-  ],
+  extends: ["eslint:recommended", "plugin:react/recommended"],
   parserOptions: {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["eslint-plugin"],
+  plugins: ["react"],
   rules: {
-    // Permitir el uso de 'self' en Service Workers
-    "no-restricted-globals": [
-      "error",
-      {
-        name: "self",
-        message: 'Use "self" instead.',
-      },
-    ],
+    "no-restricted-globals": "off", // Desactiva la regla globalmente
   },
+  overrides: [
+    {
+      files: ["src/serviceWorker.js"],
+      rules: {
+        "no-restricted-globals": "off", // Desactiva la regla específicamente para este archivo
+      },
+    },
+  ],
 };
