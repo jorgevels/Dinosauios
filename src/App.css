@@ -43,15 +43,15 @@ button-r {
 h1{
   font-family: 'JurassicPark', sans-serif;
   font-size: 50px;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   
 }
 
 h2 {
   font-family: 'JurassicPark', sans-serif;
-  font-size: 40px;
+  font-size: 45px;
   letter-spacing: 2px;
-  color: maroon;
+  color: black;
 }
 
 p {
@@ -87,4 +87,5 @@ p {
   border-radius: 25px;
   /* Redondea la imagen */
   max-width: 100%;
+  margin-top: 10%;
 }
