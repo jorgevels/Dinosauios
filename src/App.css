@@ -86,7 +86,13 @@ p {
 
 .image-container img {
   border-radius: 25px;
-  /* Redondea la imagen */
   max-width: 100%;
   margin-top: 10%;
+  /* Margen superior por defecto */
+
+  /* Media query para dispositivos más pequeños */
+  @media screen and (max-width: 768px) {
+    margin-top: -25px;
+    /* Elimina el margen superior en dispositivos más pequeños */
+  }
 }
