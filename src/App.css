@@ -51,7 +51,8 @@ h2 {
   font-family: 'JurassicPark', sans-serif;
   font-size: 45px;
   letter-spacing: 2px;
-  color: black;
+  color: brown;
+  border-color: yellow;
 }
 
 p {
