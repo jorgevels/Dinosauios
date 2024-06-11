@@ -12,7 +12,7 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-image: url("./images/istockphoto-147058992-612x612.jpg");
+  background-image: url("./images/fondoUno.avif");
   background-size: cover;
   background-position: center;
   color:orangered;
@@ -21,11 +21,24 @@
 button {
   background-color: wheat;
   border: 1px solid wheat;
+  border-radius: 5px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s;
   
+}
+
+button-r {
+  background-color: orangered;
+  border: 1px solid orangered;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+
 }
 h1{
   font-family: 'JurassicPark', sans-serif;
@@ -53,4 +66,25 @@ p {
   /* Asegura que el contenido esté delante del fondo */
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fondo semitransparente */
+  z-index: 9999;
+  /* Para que esté por encima de otros elementos */
+}
+
+.image-container img {
+  border-radius: 25px;
+  /* Redondea la imagen */
+  max-width: 100%;
 }

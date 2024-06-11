@@ -2,19 +2,22 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
 import "./fonts.css";
+import { Mosaic } from "react-loading-indicators";
+import { FaSearch, FaPlay } from "react-icons/fa"; // Importar los íconos de lupa y reproducir
 
 function App() {
   const [dinosaur, setDinosaur] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const fetchRandomDinosaur = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(
         `https://script.google.com/macros/s/AKfycbydyRvTTgmNfBjmTMWnS3NbeaTSmmR5eVtVTo03K36U46ukShua2sXkM_6IGByAQfI/exec`
       );
       console.log("API response:", response.data); // Depuración
 
-      // Verificar si la respuesta contiene datos de dinosaurio
       if (
         response.data &&
         response.data.data &&
@@ -33,6 +36,8 @@ function App() {
       console.error("Error fetching dinosaur:", error); // Depuración
       setError("Unable to fetch a random dinosaur. Please try again.");
       setDinosaur(null);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -47,21 +52,34 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Dinosaurios</h1>
-        <button onClick={fetchRandomDinosaur}>Buscar Dinosarios</button>
+        <button onClick={fetchRandomDinosaur}>
+          <FaSearch style={{ marginRight: "8px" }} />
+          Buscar Dinosaurio
+        </button>
+        {loading && (
+          <div className="loading-container">
+            <Mosaic color="orangered" size={"small"} />
+          </div>
+        )}
         {error && <p style={{ color: "red" }}>{error}</p>}
-        {dinosaur && (
+        {dinosaur && !loading && (
           <div>
             <h2>{dinosaur.name}</h2>
             {dinosaur.image && (
-              <img
-                src={dinosaur.image}
-                alt={dinosaur.name}
-                style={{ maxWidth: "100%" }}
-              />
+              <div className="image-container">
+                <img
+                  src={dinosaur.image}
+                  alt={dinosaur.name}
+                  className="dinosaur-image"
+                />
+              </div>
             )}
             <p>Especie: {dinosaur.Especie}</p>
             <p>Tipo: {dinosaur.type}</p>
-            <button onClick={speakName}>Reproducir Nombre</button>
+            <button-r onClick={speakName}>
+              <FaPlay style={{ marginRight: "8px" }} />
+              Reproducir Nombre
+            </button-r>
           </div>
         )}
       </header>
