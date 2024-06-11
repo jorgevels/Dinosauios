@@ -36,6 +36,13 @@ function App() {
     }
   };
 
+  const speakName = () => {
+    if (dinosaur && dinosaur.name) {
+      const utterance = new SpeechSynthesisUtterance(dinosaur.name);
+      window.speechSynthesis.speak(utterance);
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -54,6 +61,7 @@ function App() {
             )}
             <p>Especie: {dinosaur.Especie}</p>
             <p>Tipo: {dinosaur.type}</p>
+            <button onClick={speakName}>Reproducir Nombre</button>
           </div>
         )}
       </header>
