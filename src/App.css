@@ -92,7 +92,7 @@ p {
 
   /* Media query para dispositivos más pequeños */
   @media screen and (max-width: 768px) {
-    margin-top: -25px;
+    margin-top: -45px;
     /* Elimina el margen superior en dispositivos más pequeños */
   }
 }
