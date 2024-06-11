@@ -3,7 +3,11 @@ import axios from "axios";
 import "./App.css";
 import "./fonts.css";
 import { Mosaic } from "react-loading-indicators";
-import { FaSearch, FaPlay } from "react-icons/fa"; // Importar los íconos de lupa y reproducir
+import { FaSearch, FaPlay, FaEarlybirds } from "react-icons/fa"; // Importar ícono de nota
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 function App() {
   const [dinosaur, setDinosaur] = useState(null);
@@ -48,10 +52,23 @@ function App() {
     }
   };
 
+  // Función para mostrar el modal
+  const showNote = () => {
+    MySwal.fire({
+      title: <p>Nota</p>,
+      text: "Para Matias de su papá",
+      icon: "info",
+      confirmButtonText: "Cerrar",
+    });
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Dinosaurios</h1>
+        <div className="title-container">
+          <h1>Dinosaurios</h1>
+          <FaEarlybirds className="note-icon" onClick={showNote} />
+        </div>
         <button onClick={fetchRandomDinosaur}>
           <FaSearch style={{ marginRight: "8px" }} />
           Buscar Dinosaurio
