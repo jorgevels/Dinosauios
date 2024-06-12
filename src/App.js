@@ -55,10 +55,16 @@ function App() {
   // Función para mostrar el modal
   const showNote = () => {
     MySwal.fire({
-      title: <p>Nota</p>,
-      text: "Para Matias de su papá",
-      icon: "info",
+      title: "Para Matias Velasques de parte de su Padre",
+
+      imageUrl:
+        "https://res.cloudinary.com/imagesfull/image/upload/v1718228670/MetaStore/LogoDinos_eazdwz.png",
       confirmButtonText: "Cerrar",
+
+      customClass: {
+        title: "custom-title", // Clase personalizada para el título
+        image: "custom-image-style",
+      },
     });
   };
 

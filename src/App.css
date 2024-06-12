@@ -138,6 +138,21 @@ p {
   /* Margen superior por defecto */
 }
 
+.custom-title {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+}
+
+.custom-image-style {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
 /* Media queries para pantallas más pequeñas */
 @media screen and (max-width: 768px) {
   h1 {
@@ -154,8 +169,8 @@ p {
 
   button,
   button-r {
-    padding: 8px 16px;
-    font-size: 14px;
+   /*  padding: 8px 16px; */
+   /*  font-size: 14px; */
   }
 
   .image-container img {
@@ -166,11 +181,11 @@ p {
 
 @media screen and (max-width: 480px) {
   h1 {
-    font-size: 25px;
+    font-size: 35px;
   }
 
   h2 {
-    font-size: 25px;
+    font-size: 35px;
   }
 
   p {
@@ -179,8 +194,8 @@ p {
 
   button,
   button-r {
-    padding: 6px 12px;
-    font-size: 12px;
+   /*  padding: 6px 12px;
+    font-size: 12px; */
   }
 
   .image-container img {
