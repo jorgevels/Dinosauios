@@ -73,7 +73,6 @@ function App() {
       <header className="App-header">
         <div className="title-container">
           <h1>Dinosaurios</h1>
-          <FaEarlybirds className="note-icon" onClick={showNote} />
         </div>
         <button onClick={fetchRandomDinosaur}>
           <FaSearch style={{ marginRight: "8px" }} />
@@ -87,6 +86,7 @@ function App() {
         {error && <p style={{ color: "red" }}>{error}</p>}
         {dinosaur && !loading && (
           <div className="content">
+            <FaEarlybirds className="note-icon" onClick={showNote} />
             <h2>{dinosaur.name}</h2>
             {dinosaur.image && (
               <div className="image-container">
