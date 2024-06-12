@@ -54,7 +54,7 @@ function App() {
 
   const showNote = () => {
     MySwal.fire({
-      title: "Para Matias Velasques de parte de su Padre",
+      title: "Para Matias Velasques de parte de su Padre. 😃",
       imageUrl:
         "https://res.cloudinary.com/imagesfull/image/upload/v1718228670/MetaStore/LogoDinos_eazdwz.png",
       confirmButtonText: "Cerrar",
