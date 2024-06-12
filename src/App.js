@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 import "./fonts.css";
 import { Mosaic } from "react-loading-indicators";
-import { FaSearch, FaPlay, FaEarlybirds } from "react-icons/fa"; // Importar ícono de nota
+import { FaSearch, FaPlay, FaEarlybirds } from "react-icons/fa";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -20,7 +20,7 @@ function App() {
       const response = await axios.get(
         `https://script.google.com/macros/s/AKfycbydyRvTTgmNfBjmTMWnS3NbeaTSmmR5eVtVTo03K36U46ukShua2sXkM_6IGByAQfI/exec`
       );
-      console.log("API response:", response.data); // Depuración
+      console.log("API response:", response.data);
 
       if (
         response.data &&
@@ -37,7 +37,7 @@ function App() {
         setDinosaur(null);
       }
     } catch (error) {
-      console.error("Error fetching dinosaur:", error); // Depuración
+      console.error("Error fetching dinosaur:", error);
       setError("Unable to fetch a random dinosaur. Please try again.");
       setDinosaur(null);
     } finally {
@@ -52,17 +52,14 @@ function App() {
     }
   };
 
-  // Función para mostrar el modal
   const showNote = () => {
     MySwal.fire({
       title: "Para Matias Velasques de parte de su Padre",
-
       imageUrl:
         "https://res.cloudinary.com/imagesfull/image/upload/v1718228670/MetaStore/LogoDinos_eazdwz.png",
       confirmButtonText: "Cerrar",
-
       customClass: {
-        title: "custom-title", // Clase personalizada para el título
+        title: "custom-title",
         image: "custom-image-style",
       },
     });
@@ -74,10 +71,13 @@ function App() {
         <div className="title-container">
           <h1>Dinosaurios</h1>
         </div>
-        <button onClick={fetchRandomDinosaur}>
-          <FaSearch style={{ marginRight: "8px" }} />
-          Buscar Dinosaurio
-        </button>
+        <div className="button-wrapper">
+          <button onClick={fetchRandomDinosaur} className="search-button">
+            <FaSearch style={{ marginRight: "8px" }} />
+            Buscar Dinosaurio
+          </button>
+          <FaEarlybirds className="note-icon" onClick={showNote} />
+        </div>
         {loading && (
           <div className="loading-container">
             <Mosaic color="orangered" size={"small"} />
@@ -86,7 +86,6 @@ function App() {
         {error && <p style={{ color: "red" }}>{error}</p>}
         {dinosaur && !loading && (
           <div className="content">
-            <FaEarlybirds className="note-icon" onClick={showNote} />
             <h2>{dinosaur.name}</h2>
             {dinosaur.image && (
               <div className="image-container">
