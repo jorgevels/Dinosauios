@@ -80,7 +80,7 @@ function App() {
         )}
         {error && <p style={{ color: "red" }}>{error}</p>}
         {dinosaur && !loading && (
-          <div>
+          <div className="content">
             <h2>{dinosaur.name}</h2>
             {dinosaur.image && (
               <div className="image-container">
